@@ -1,0 +1,38 @@
+.footer-container {
+  background-color: var(--footer-bg);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  overflow: hidden;
+  cursor: default;
+  .footer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-family: var(--secondary-font-en);
+      margin-right: 15px;
+      font-weight: 600;
+    }
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      text-decoration: none;
+      .primary {
+        transition: 0.3s;
+        &:hover {
+          color: var(--primary-red);
+        }
+      }
+      img {
+        margin-right: 10px;
+        height: 30px;
+      }
+    }
+  }
+}

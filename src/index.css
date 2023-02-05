@@ -1,13 +1,69 @@
-body {
+/*
+*font faces
+*/
+@font-face {
+  font-family: primaryAr;
+  src: url(./fonts/primaryAr.ttf);
+}
+@font-face {
+  font-family: secondaryAr;
+  src: url(./fonts/secondaryAr.ttf);
+}
+@font-face {
+  font-family: primaryEn;
+  src: url(./fonts/primaryEn.otf);
+}
+@font-face {
+  font-family: secondaryEn;
+  src: url(./fonts/secondaryEn.ttf);
+}
+/**/
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-red: #eb1426;
+  --primary-yello: #ffd239;
+  --primary-font-color: #fff;
+  --secondary-font-color: #7b797a;
+  --primary-font-ar: "primaryAr";
+  --secondary-font-ar: "secondaryAr";
+  --primary-font-en: "primaryEn";
+  --secondary-font-en: "secondaryEn";
+  --nav-bg: #101010;
+  --footer-bg: #191919;
+  --body-bg: #232323;
+  --body-overlay: #171718;
+}
+
+html {
+  width: 100%;
+  background-color: var(--body-bg);
+  color: var(--primary-font-color);
+
+  background: -webkit-radial-gradient(
+      closest-corner,
+      rgb(18 17 17 / 5%) 60%,
+      rgb(12 11 11 / 14%)
+    ),
+    -webkit-linear-gradient(108deg, #000000, #111112 90%);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpiZmBg6AZiDiBWZ4YyQMCOCcYA4kMAAQYAHyYCCUdxidgAAAAASUVORK5CYII=");
+
+}
+
+.primary {
+  color: var(--primary-yello);
+}
+.hide {
+  display: none;
 }
