@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer">
         <p>Powered By || </p>
         <a href="https://qdev.store" target="_blank" rel="noreferrer">
-          <img src={QDevLogo} alt="Qdev Logo" />{" "}
+          <img width="30px" height="30px" src={QDevLogo} alt="Qdev Logo" />
           <span className="primary">QDev</span>
         </a>
       </div>

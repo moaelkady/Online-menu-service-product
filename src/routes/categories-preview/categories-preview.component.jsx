@@ -1,17 +1,29 @@
-import { useContext } from "react";
+import React, { Suspense, useContext } from "react";
 
 import { CategoriesContext } from "../../contexts/categories.context";
-import CategoryPreview from "../../components/category-preview/category-preview.component";
-import PrimaryTitle from "../../components/primary-title/primary-title.component";
 
 import "./categories-preview.styles.scss";
+
+const CategoryPreview = React.lazy(() =>
+  import("../../components/category-preview/category-preview.component")
+);
+const PrimaryTitle = React.lazy(() =>
+  import("../../components/primary-title/primary-title.component")
+);
+
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
   return (
     <div className="categories-preview-container">
-      <PrimaryTitle title="Welcome" />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PrimaryTitle />
+      </Suspense>
       {Object.keys(categoriesMap).map((title) => {
-        return <CategoryPreview key={title} title={title} />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <CategoryPreview key={title} title={title} />
+          </Suspense>
+        );
       })}
     </div>
   );

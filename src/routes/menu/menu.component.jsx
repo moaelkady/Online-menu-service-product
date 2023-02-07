@@ -1,14 +1,31 @@
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import CategoriesPreview from "../categories-preview/categories-preview.component";
-import Category from "../category/category.component";
+const CategoriesPreview = React.lazy(() =>
+  import("../categories-preview/categories-preview.component")
+);
+const Category = React.lazy(() => import("../category/category.component"));
 
 const Menu = () => {
   return (
     <div className="menu-view-container">
       <Routes>
-        <Route index element={<CategoriesPreview />} />
-        <Route path=":category" element={<Category />} />
+        <Route
+          index
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <CategoriesPreview />
+            </Suspense>
+          }
+        />
+        <Route
+          path=":category"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Category />
+            </Suspense>
+          }
+        />
       </Routes>
     </div>
   );

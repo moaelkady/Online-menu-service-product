@@ -2,20 +2,14 @@
 *font faces
 */
 @font-face {
-  font-family: primaryAr;
-  src: url(./fonts/primaryAr.ttf);
+  font-family: 'primaryEn';
+  src: url('./fonts/primaryEn.otf');
+  font-display: swap;
 }
 @font-face {
-  font-family: secondaryAr;
-  src: url(./fonts/secondaryAr.ttf);
-}
-@font-face {
-  font-family: primaryEn;
-  src: url(./fonts/primaryEn.otf);
-}
-@font-face {
-  font-family: secondaryEn;
-  src: url(./fonts/secondaryEn.ttf);
+  font-family: 'secondaryEn';
+  src: url('./fonts/secondaryEn.ttf');
+  font-display: swap;
 }
 /**/
 
@@ -30,8 +24,6 @@
   --primary-yello: #ffd239;
   --primary-font-color: #fff;
   --secondary-font-color: #7b797a;
-  --primary-font-ar: "primaryAr";
-  --secondary-font-ar: "secondaryAr";
   --primary-font-en: "primaryEn";
   --secondary-font-en: "secondaryEn";
   --nav-bg: #101010;
@@ -66,4 +58,7 @@ body {
 }
 .hide {
   display: none;
+}
+.font-size-zero {
+  font-size: 0;
 }

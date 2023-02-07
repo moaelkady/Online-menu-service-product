@@ -9,7 +9,7 @@ const navbar = () => {
       <div className="navbar">
         <div className="logo-container">
           <div className="logo">
-            <img src={logo} alt="app logo" />
+            <img width="39px" height="44px" src={logo} alt="app logo" />
           </div>
         </div>
         <div className="search-bar-container hide">
@@ -19,6 +19,7 @@ const navbar = () => {
           <div className="home-link">
             <Link to="/">
               <HomeIcon />
+              <span className="font-size-zero">Home</span>
             </Link>
           </div>
         </div>

@@ -1,12 +1,17 @@
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
-
-import ProductCard from "../../components/product-card/product-card.component";
-import PrimaryTitle from "../../components/primary-title/primary-title.component";
 
 import { CategoriesContext } from "../../contexts/categories.context";
 
 import "./category.styles.scss";
+
+const ProductCard = React.lazy(() =>
+  import("../../components/product-card/product-card.component")
+);
+const PrimaryTitle = React.lazy(() =>
+  import("../../components/primary-title/primary-title.component")
+);
+
 const Category = () => {
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
@@ -18,11 +23,15 @@ const Category = () => {
 
   return (
     <div className="category-container">
-      <PrimaryTitle title={category.toUpperCase()} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PrimaryTitle title={category.toUpperCase()} />
+      </Suspense>
       <div className="product-card-container">
         {products &&
           products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProductCard key={product.id} product={product} />
+            </Suspense>
           ))}
       </div>
     </div>
