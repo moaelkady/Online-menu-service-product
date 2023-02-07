@@ -1,7 +1,7 @@
 import React, { Suspense, useContext } from "react";
 
 import { CategoriesContext } from "../../contexts/categories.context";
-
+import Loading from "../../components/loading/loading.component";
 import "./categories-preview.styles.scss";
 
 const CategoryPreview = React.lazy(() =>
@@ -15,13 +15,13 @@ const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
   return (
     <div className="categories-preview-container">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <PrimaryTitle />
       </Suspense>
       {Object.keys(categoriesMap).map((title) => {
         return (
-          <Suspense fallback={<div>Loading...</div>}>
-            <CategoryPreview key={title} title={title} />
+          <Suspense fallback={<Loading />} key={title}>
+            <CategoryPreview title={title} />
           </Suspense>
         );
       })}

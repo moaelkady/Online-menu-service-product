@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-
+import Loading from "../../components/loading/loading.component";
 const CategoriesPreview = React.lazy(() =>
   import("../categories-preview/categories-preview.component")
 );
@@ -13,7 +13,7 @@ const Menu = () => {
         <Route
           index
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <CategoriesPreview />
             </Suspense>
           }
@@ -21,7 +21,7 @@ const Menu = () => {
         <Route
           path=":category"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <Category />
             </Suspense>
           }

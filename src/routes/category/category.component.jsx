@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
 
 import { CategoriesContext } from "../../contexts/categories.context";
+import Loading from "../../components/loading/loading.component";
 
 import "./category.styles.scss";
 
@@ -23,13 +24,13 @@ const Category = () => {
 
   return (
     <div className="category-container">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <PrimaryTitle title={category.toUpperCase()} />
       </Suspense>
       <div className="product-card-container">
         {products &&
           products.map((product) => (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <ProductCard key={product.id} product={product} />
             </Suspense>
           ))}
