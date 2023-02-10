@@ -30,8 +30,8 @@ const Category = () => {
       <div className="product-card-container">
         {products &&
           products.map((product) => (
-            <Suspense fallback={<Loading />}>
-              <ProductCard key={product.id} product={product} />
+            <Suspense fallback={<Loading />} key={product.id}>
+              <ProductCard product={product} />
             </Suspense>
           ))}
       </div>

@@ -1,0 +1,18 @@
+.search-items-view-container {
+  position: fixed;
+  width: 100%;
+  display: block;
+  height: calc(100vh - 60px);
+  top: 60px;
+  left: 0;
+  background-color: #000000;
+  color: #fff;
+  font-family: var(--primary-font-en);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  letter-spacing: 3px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

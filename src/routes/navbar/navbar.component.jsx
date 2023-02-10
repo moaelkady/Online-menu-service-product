@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as HomeIcon } from "../../assets/home-icon.svg";
 import logo from "../../assets/logo.webp";
+import SearchBar from "../../components/search-bar/search-bar.components";
 
 import "./navbar.styles.scss";
 const navbar = () => {
@@ -12,8 +13,8 @@ const navbar = () => {
             <img width="39px" height="44px" src={logo} alt="app logo" />
           </div>
         </div>
-        <div className="search-bar-container hide">
-          <div className="search-bar">Search bar feature</div>
+        <div className="search-bar-container">
+          <SearchBar />
         </div>
         <div className="home-link-container">
           <div className="home-link">

@@ -1,8 +1,13 @@
 .navbar-container {
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    background-color: var(--nav-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  background-color: var(--nav-bg);
   .navbar {
     height: 100%;
     display: flex;
@@ -12,7 +17,7 @@
       .logo {
         padding: 8px 20px;
         img {
-            height: 44px;
+          height: 44px;
         }
       }
     }
@@ -23,17 +28,17 @@
     .home-link-container {
       .home-link {
         a {
-            padding: 20px 20px;
-            &:-webkit-any-link:focus-visible {
-                outline: none;
-            }
+          padding: 20px 20px;
+          &:-webkit-any-link:focus-visible {
+            outline: none;
+          }
           svg {
             height: 30px;
             fill: var(--primary-font-color);
             transition: 0.3s;
             &:hover {
-                fill: var(--primary-yello);
-                transform: scale(1.08);
+              fill: var(--primary-yello);
+              transform: scale(1.08);
             }
           }
         }

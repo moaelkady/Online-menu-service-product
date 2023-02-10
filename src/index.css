@@ -62,3 +62,23 @@ body {
 .font-size-zero {
   font-size: 0;
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #181717;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-yello);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #131111;
+}
+
+@media screen and (max-width: 731px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
