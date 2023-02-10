@@ -16,7 +16,7 @@ const CategoriesPreview = () => {
   return (
     <div className="categories-preview-container">
       <Suspense fallback={<Loading />}>
-        <PrimaryTitle />
+        <PrimaryTitle title="Welcome Quote" />
       </Suspense>
       {Object.keys(categoriesMap).map((title) => {
         return (
