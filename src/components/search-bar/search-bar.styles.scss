@@ -32,11 +32,10 @@
         height: 30px;
         display: block;
         transition: 0.3s;
-
       }
     }
     .svg-container.open {
-        left: 46px;
+      left: 46px;
     }
     .search-value-container {
       position: absolute;
@@ -44,15 +43,15 @@
         border: none;
         padding: 14px;
         border-radius: 25px;
-        background-color: #ffffff50;
+        background-color: #ffffff09;
         width: 45px;
         transition: 0.3s;
         color: #fff;
         font-family: var(--secondary-font-en);
         transition: 0.3s;
         &:focus-visible {
-            outline: none;
-            border: 1px solid var(--primary-yello);
+          outline: none;
+          border: 1px solid #ffffff30;
         }
       }
       input.open {

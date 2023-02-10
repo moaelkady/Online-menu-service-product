@@ -1,7 +1,13 @@
-import { useContext, useState, useEffect } from "react";
-import "./search-items-view.styles.scss";
+import React, { Suspense, useContext, useState, useEffect } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../error-boundry/error-boundary.component";
+import Loading from "../loading/loading.component";
 import { CategoriesContext } from "../../contexts/categories.context";
-import ProductCard from "../product-card/product-card.component";
+import "./search-items-view.styles.scss";
+
+const ProductCard = React.lazy(() =>
+  import("../product-card/product-card.component")
+);
 
 const SearchItemsView = ({ searchValue }) => {
   const { categoriesMap } = useContext(CategoriesContext);
@@ -20,12 +26,24 @@ const SearchItemsView = ({ searchValue }) => {
       )
     );
   }, [searchValue, productsItems]);
-
-  console.log(filteredData);
   return (
     <div className="search-items-view-container">
       <div className="search-items-view">
-        {filteredData && filteredData.map((product) => <ProductCard product={product} key={product.name}/>)}
+        {filteredData.length > 0 &&
+          filteredData.map((product) => (
+            <ErrorBoundary
+              FallbackComponent={ErrorFallback}
+              onReset={() => {}}
+              key={product.name}
+            >
+              <Suspense fallback={<Loading />}>
+                <ProductCard product={product} />
+              </Suspense>
+            </ErrorBoundary>
+          ))}
+        {filteredData.length === 0 && (
+          <div style={{ marginTop: "50px" }}>Sorry try something else</div>
+        )}
       </div>
     </div>
   );

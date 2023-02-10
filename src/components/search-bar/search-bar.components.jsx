@@ -1,8 +1,13 @@
-import { useState } from "react";
+import React, { Suspense, useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../error-boundry/error-boundary.component";
+import Loading from "../loading/loading.component";
 import { ReactComponent as SearchIcon } from "./assets/search-icon.svg";
-import SearchItemsView from "../search-items-view/search-items-view.component";
-
 import "./search-bar.styles.scss";
+
+const SearchItemsView = React.lazy(() =>
+  import("../search-items-view/search-items-view.component")
+);
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
@@ -23,7 +28,9 @@ const SearchBar = () => {
           <SearchIcon />
         </div>
         <div className="search-value-container">
+          <label for="searchItem" className="hide">Search For:</label>
           <input
+            placeholder="Search For..."
             className={searchClicked ? "open" : ""}
             type="text"
             name="search-value"
@@ -32,7 +39,14 @@ const SearchBar = () => {
           />
         </div>
       </div>
-      {searchClicked && <SearchItemsView searchValue={searchValue} /> }
+
+      {searchClicked && (
+        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}}>
+          <Suspense fallback={<Loading />}>
+            <SearchItemsView searchValue={searchValue} />
+          </Suspense>
+        </ErrorBoundary>
+      )}
     </div>
   );
 };
