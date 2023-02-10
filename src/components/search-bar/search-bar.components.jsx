@@ -28,7 +28,7 @@ const SearchBar = () => {
           <SearchIcon />
         </div>
         <div className="search-value-container">
-          <label for="searchItem" className="hide">Search For:</label>
+          <label htmlFor="searchItem" className="hide">Search For:</label>
           <input
             placeholder="Search For..."
             className={searchClicked ? "open" : ""}

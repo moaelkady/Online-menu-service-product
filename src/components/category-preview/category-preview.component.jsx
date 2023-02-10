@@ -6,7 +6,6 @@ import "./category-preview.styles.scss";
 const CategoryPreview = ({ title }) => {
   const { categoriesAvatar } = useContext(CategoriesContext);
   const avatar = categoriesAvatar[title];
-
   return (
     <div className="category-preview-container">
       <div className="category-preview">
