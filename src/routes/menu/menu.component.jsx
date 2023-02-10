@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loading from "../../components/loading/loading.component";
+import "./menu.styles.scss";
+
 const CategoriesPreview = React.lazy(() =>
   import("../categories-preview/categories-preview.component")
 );
