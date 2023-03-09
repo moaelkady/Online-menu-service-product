@@ -25,13 +25,12 @@
       text-decoration: none;
       .primary {
         transition: 0.3s;
+        font-family: "primaryEn";
+        font-weight: 100;
+        letter-spacing: 1px;
         &:hover {
           color: var(--primary-red);
         }
-      }
-      img {
-        margin-right: 10px;
-        height: 30px;
       }
     }
   }
